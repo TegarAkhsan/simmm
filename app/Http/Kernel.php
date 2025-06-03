@@ -3,6 +3,8 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Illuminate\Console\Scheduling\Schedule;
+use App\Models\Booking;
 
 class Kernel extends HttpKernel
 {
@@ -64,4 +66,13 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
     ];
+
+    protected function schedule(Schedule $schedule)
+    {
+        $schedule->call(function () {
+            Booking::where('status', 'pending')
+                ->where('created_at', '<', now()->subHours(3))
+                ->update(['status' => 'expired']);
+        })->hourly();
+    }
 }

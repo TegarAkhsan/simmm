@@ -1,9 +1,10 @@
 body {
     min-height: 120vh !important;
     background-color: #fff !important;
-    color: #fff !important;
+    color: #111827 !important;
     scroll-behavior: smooth !important;
     font-family: 'Poppins', sans-serif !important;
+    padding-top: 50px !important; /* Memberikan ruang untuk navbar tetap terlihat */
 }
 
 .navbar {
@@ -105,13 +106,18 @@ body {
     text-align: center !important;
 }
 
-/* Tampilan paragraf */
-section p {
+.hero-text {
     font-size: 18px !important;
-    color: #333 !important;
+    color: white !important;
     line-height: 1.6 !important;
 }
 
+/* Tampilan paragraf */
+section p {
+    font-size: 18px !important;
+    color: black ;
+    line-height: 1.6 !important;
+}
 
 /* Section */
 .section-title {
@@ -125,7 +131,7 @@ section p {
 
 /* Struktur utama untuk bagian Tentang Kami */
 /* Mengatur layout About agar gambar di kiri dan teks di kanan */
-.About {
+.about {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -206,3 +212,12 @@ section p {
     padding: 50px !important;
     text-align: left !important;
 }
+
+    .service-card-img {
+        height: 280px; /* Atur tinggi sesuai kebutuhan */
+        object-fit: cover;
+        width: 100%;
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+    }
+
